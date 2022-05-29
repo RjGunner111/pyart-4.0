@@ -9,7 +9,8 @@ from tabulate import tabulate
 import os
 import csv
 
-# modules to install: keyboard, webcolors, tabulate
+# modules to install: keyboard, webcolors, tabulate, you can automatically run this in a cmd file named "modulesinstall.cmd"
+# don't trust it? open it in notepad and see for yourself that it installs the modules necessary to run this file.
 
 # default loop variable
 loopss = 0
