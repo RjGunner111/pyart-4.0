@@ -34,7 +34,7 @@ namespace pyart_4._0
             }
         }
 
-        public static string script;
+        public static string? script;
 
         public static int choice;
 
