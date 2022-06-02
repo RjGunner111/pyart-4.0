@@ -45,7 +45,7 @@ namespace pyart_4._0
             var psi = new ProcessStartInfo();
             psi.FileName = @"C:\Program Files\Python3\python.exe";
 
-            string folder = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+            string? folder = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             string newPath = Path.GetFullPath(Path.Combine(folder, @"..\..\..\"));
 
             script = $@"{newPath}pyart 4.0.py";
