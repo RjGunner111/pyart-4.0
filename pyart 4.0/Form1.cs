@@ -138,14 +138,6 @@ namespace pyart_4._0
 
 
                         ptsd = Encoding.ASCII.GetString(bytes, 0, bytesRec);
-
-                        if (lel == "recon")
-                        {
-                            StartClient("red", 1234);
-                            StartClient("green", 1234);
-                            StartClient("blue", 1234);
-                            button9.ForeColor = Color.FromArgb(R, G, B);
-                        }
                         label1.Text = "Speed: " + ptsd;
                     }
                     else if (lel == "colordef")
@@ -203,10 +195,6 @@ namespace pyart_4._0
                             lmfo = excheck.Replace("7 ", "").Replace(" OK", "");
                             listBox1.Items.Add(lmfo);
                         }
-                        StartClient("red", 1234);
-                        StartClient("green", 1234);
-                        StartClient("blue", 1234);
-                        button9.ForeColor = Color.FromArgb(R, G, B);
                     }
                     else if (lel.EndsWith("loopbase") || lel.EndsWith("loopappend"))
                     {
@@ -228,10 +216,6 @@ namespace pyart_4._0
                                 AddLooping();
                                 AddToList(); 
                                 loopss++;
-                                StartClient("red", 1234);
-                                StartClient("green", 1234);
-                                StartClient("blue", 1234);
-                                button9.ForeColor = Color.FromArgb(R, G, B);
                                 this.button11.Location = new Point(35, 70);
                             }
                             else if (nowhere == "WTF")
@@ -256,13 +240,6 @@ namespace pyart_4._0
                             }
                         }
                     }
-                    else if (lel.EndsWith("change"))
-                    {
-                        StartClient("red", 1234);
-                        StartClient("green", 1234);
-                        StartClient("blue", 1234);
-                        button9.ForeColor = Color.FromArgb(R, G, B);
-                    }
                     else if (lel == "red")
                     {
                         int bytesRec = sender.Receive(bytes);
@@ -282,7 +259,7 @@ namespace pyart_4._0
 
                         B = Convert.ToInt32(Encoding.ASCII.GetString(bytes, 0, bytesRec));
                     }
-                    else if (lel == "goup" || lel == "godown")
+                    if (lel == "goup" || lel == "godown" || lel == "recon" || lel.EndsWith("change") || lel.EndsWith("loopappend") && (nowhere == "DONE" && nowhere != "WTF") || lel.EndsWith("custom"))
                     {
                         StartClient("red", 1234);
                         StartClient("green", 1234);
